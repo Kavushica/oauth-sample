@@ -7,23 +7,23 @@ import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-public class ResourceContainer {
+public class DataHolder {
 
 	private static volatile Map<String, JsonNode> resourceMap;
-	private static ResourceContainer resourceDataHolder;
+	private static DataHolder resourceDataHolder;
 
-	private ResourceContainer() {
+	private DataHolder() {
 
 		resourceMap = new HashMap<String, JsonNode>();
 	}
 
-	public static ResourceContainer getInstance() {
+	public static DataHolder getInstance() {
 
 		if (resourceDataHolder == null) {
 
-			synchronized (ResourceContainer.class) {
+			synchronized (DataHolder.class) {
 				if (resourceDataHolder == null) {
-					resourceDataHolder = new ResourceContainer();
+					resourceDataHolder = new DataHolder();
 				}
 			}
 		}
